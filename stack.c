@@ -1,29 +1,29 @@
 #include<stdio.h>
-void push(int a[],int *last)
+void push(int a[],int *top)
 {
-    *last=*last+1;
+    *top=*top+1;
     printf("\nEnter a number:");
-    scanf("%d",&a[*last]);
+    scanf("%d",&a[*top]);
     printf("value pushed into the stack");
 
 }
-int pop(int a[],int *last)
+int pop(int a[],int *top)
 {
     int ele;
-    ele=a[*last];
-    *last=*last-1;
+    ele=a[*top];
+    *top=*top-1;
     printf("\nThe value %d is poped from  the stack",ele);
 }
-void display(int a[],int *last){
+void display(int a[],int *top){
     int i;
     printf("\n the stak elements are:");
-    for(i=0;i<= *last;i++)
+    for(i=*top;i>= 0;i--)
         printf("%d ",a[i]);
 }
 int main()
 {
     int arr[10],ch,e=1;
-    int last=-1;
+    int top=-1;
 
     while(e)
     {
@@ -35,11 +35,21 @@ int main()
         scanf("%d",&ch);
         switch(ch)
         {
-            case 1: push(arr, &last);
+            case 1: if(top==9)
+                    {
+                        printf("\nStack is full");
+                        break;
+                    }
+                    push(arr, &top);
                     break;
-            case 2:pop(arr,&last);
+            case 2:if(top<0)
+                    {
+                        printf("\nstack is empty");
+                        break;
+                    }
+                    pop(arr,&top);
                     break;
-            case 3:display(arr,&last);
+            case 3:display(arr,&top);
             break;
             case 4:e=0;
                 printf("\nExiting from the programe");
