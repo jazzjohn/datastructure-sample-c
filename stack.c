@@ -1,28 +1,27 @@
 #include<stdio.h>
+#define SIZE 10
+
 void push(int a[],int *top)
 {
     *top=*top+1;
     printf("\nEnter a number:");
     scanf("%d",&a[*top]);
-    printf("value pushed into the stack");
+    printf("\n%d is pushed to the stack",a[*top]);
 
 }
 int pop(int a[],int *top)
 {
-    int ele;
-    ele=a[*top];
-    *top=*top-1;
-    printf("\nThe value %d is poped from  the stack",ele);
+    printf("\n%d is poped from the stack",a[*top]);
+    *top-=1;
 }
 void display(int a[],int *top){
-    int i;
     printf("\n the stak elements are:");
-    for(i=*top;i>= 0;i--)
+    for(int i=*top;i>= 0;i--)
         printf("%d ",a[i]);
 }
 int main()
 {
-    int arr[10],ch,e=1;
+    int arr[SIZE],ch,e=1;
     int top=-1;
 
     while(e)
@@ -35,16 +34,16 @@ int main()
         scanf("%d",&ch);
         switch(ch)
         {
-            case 1: if(top==9)
+            case 1: if(top>=SIZE-1)
                     {
-                        printf("\nStack is full");
+                        printf("\nSTACK overflow\n");
                         break;
                     }
                     push(arr, &top);
                     break;
             case 2:if(top<0)
                     {
-                        printf("\nstack is empty");
+                        printf("\nSTACK underflow\n");
                         break;
                     }
                     pop(arr,&top);
