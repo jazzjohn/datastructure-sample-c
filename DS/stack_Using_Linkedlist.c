@@ -15,13 +15,21 @@ void push()
     printf("\nEnter a value:");
     scanf("%d", &val);
     temp = (struct Node *)malloc(sizeof(struct Node));
-    temp->data = val;
-    if (top == NULL)
-        temp->next = NULL;
+    if (temp)
+    {
+        temp->data = val;
+        if (top == NULL)
+            temp->next = NULL;
+        else
+            temp->next = top;
+        top = temp;
+        printf("\nOne value inserted into the STACK\n");
+    }
     else
-        temp->next = top;
-    top = temp;
-    printf("\nOne value inserted into the STACK\n");
+    {
+        printf("\nSTACK overflow");
+    }
+    
 }
 int pop()
 {
