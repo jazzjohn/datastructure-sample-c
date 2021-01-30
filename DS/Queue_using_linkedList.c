@@ -98,6 +98,7 @@ int main()
 			    printf("\n exiting...");
 			    break;
 		    default: printf("\n please enter valid choice\n");
+                break;
 	    }
     }
     
