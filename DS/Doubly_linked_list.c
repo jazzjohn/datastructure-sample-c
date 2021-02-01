@@ -168,7 +168,7 @@ void delete (int *op)
             if (pos == 1 && ptr->next == NULL)
             {
                 head = NULL;
-                printf("\nValue deleted at position %d ", pos);
+                printf("\nValue deleted in position %d ", pos);
             }
             else
             {
@@ -186,7 +186,7 @@ void delete (int *op)
                 else
                 {
                     ptr->next = ptr->next->next;
-                    printf("\nValue deleted at position %d\n ", pos);
+                    printf("\nValue deleted in position %d\n ", pos);
                 }
             }
         }
