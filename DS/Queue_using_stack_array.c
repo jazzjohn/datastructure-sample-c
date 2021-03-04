@@ -20,7 +20,6 @@ void push(int s1[], int s2[], int *top1, int *top2)
     s1[*top1] = e;
     printf("\nThe entered element %d is inserted in to the QUEUE\n", e);
 }
-
 void pop(int s1[], int s2[], int *top1, int *top2)
 {
     if (*top1 < 0)
@@ -42,6 +41,16 @@ void pop(int s1[], int s2[], int *top1, int *top2)
             *top1-=1;
         }
     }
+}
+
+void enqueue()
+{
+
+}
+
+void dequeue()
+{
+
 }
 
 void display(int s1[], int *top1)
@@ -66,17 +75,17 @@ int main()
     {
         printf("\nQUEUE USING STACK");
         printf("\n____________________MENU______________________\n");
-        printf("\n\t 1. insert\n\t 2. delete\n\t 3. Display\n\t 4. Exit\n");
+        printf("\n\t 1. Enqueue\n\t 2. Dequeue\n\t 3. Display\n\t 4. Exit\n");
         printf("\n__________________________________________________\n");
         printf("\nEnter your choice:");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
-            push(stack1, stack2, &top1, &top2);
+            enqueue(stack1, stack2, &top1, &top2);
             break;
         case 2:
-            pop(stack1, stack2, &top1, &top2);
+            dequeue(stack1, stack2, &top1, &top2);
             break;
         case 3:
             display(stack1,&top1);

@@ -9,43 +9,61 @@ typedef struct node
     struct node *right;
 } node;
 
-node *root = NULL;
 
-node *newNode(int val)
+
+node *createNode(int val)
 {
     node *newnode;
     newnode = (node *)malloc(sizeof(node));
     newnode->data = val;
-    newnode->left = NULL;
-    newnode->right = NULL;
+    newnode->left = newnode->right = NULL;
     return newnode;
+}
+
+node *findNode(node *temp, node *tree)
+{
+    if ((temp->data > tree->data) && (tree->right == NULL))
+    {
+        tree->right = temp;
+    }
+    else if ((temp->data > tree->data) && (tree->right != NULL))
+    {
+        tree->right=findNode(temp, tree->right);
+    }
+    else if ((temp->data < tree->data) && (tree->left == NULL))
+    {
+        tree->left = temp;
+    }
+    else if ((temp->data < tree->data) && (tree->left != NULL))
+    {
+        tree->left=findNode(temp, tree->left);
+    }
+    
 }
 
 node *insert(int val, node *tree)
 {
+    node *temp=createNode(val);
     if (tree == NULL)
     {
-        root=newNode(val);
-    }
-    if ((val < tree->data))
-    {
-        tree->left = insert(val, tree->left);
+        tree=temp;
     }
     else
     {
-        tree->right = insert(val, tree->right);
+        findNode(temp,tree);
     }
 }
 
 node *inorderTraversal(node *tree)
 {
-    if (tree != NULL)
+    if (tree == NULL)
     {
-        printf("bst is empty!!!");
-        return;
+        return NULL;
     }
+    if(tree->left!=NULL)
         inorderTraversal(tree->left);
-        printf("\t%d\t", tree->data);
+    printf("\t%d\t", tree->data);
+    if(tree->right!=NULL)
         inorderTraversal(tree->right);
 }
 
@@ -53,10 +71,9 @@ node *preorderTraversal(node *tree)
 {
     if (tree == NULL)
     {
-        printf("bst is empty!!!");
         return NULL;
     }
-    printf("%d", tree->data);
+    printf("\t%d\t", tree->data);
     preorderTraversal(tree->left);
     preorderTraversal(tree->right);
 }
@@ -65,12 +82,11 @@ node *postorderTraversal(node *tree)
 {
     if (tree == NULL)
     {
-        printf("bst is empty!!!");
         return NULL;
     }
     postorderTraversal(tree->left);
     postorderTraversal(tree->right);
-    printf("%d", tree->data);
+    printf("\t%d\t", tree->data);
 }
 
 node *minValueNode(node *tree)
@@ -99,16 +115,22 @@ node *deleteNode(int val, node *tree)
     }
     else
     {
-        if (tree->left == NULL)
+        // if((tree->left==NULL)&&(tree->right==NULL))
+        // {
+        //     node *temp= tree;
+        //     tree==NULL;
+        //     return temp;
+        // }
+        if ((tree->left == NULL))
         {
             node *temp = tree->right;
-            free(tree);
+            tree == NULL;
             return temp;
         }
-        else if (tree->right == NULL)
+        else if ((tree->right == NULL))
         {
             node *temp = tree->left;
-            free(tree);
+            tree == NULL;
             return temp;
         }
         node *temp = minValueNode(tree->right);
@@ -130,17 +152,18 @@ node *searchNode(int val, node *tree)
     }
     else if (tree->data < val)
     {
-        deleteNode(val, tree->right);
+        searchNode(val, tree->right);
     }
     else
     {
-        deleteNode(val, tree->left);
+        searchNode(val, tree->left);
     }
 }
 
 int main()
 {
     int ch, e = 1, op, val;
+    node *root = NULL;
     while (e)
     {
         printf("\n BST OPERATION");
@@ -154,17 +177,19 @@ int main()
         case 1:
             printf("\nEnter the value to be inserted:");
             scanf("%d", &val);
-            insert(val, root);
+            root = insert(val, root);
             break;
         case 2:
             printf("\nEnter the value to be deleted:");
             scanf("%d", &val);
             deleteNode(val, root);
+            printf("one value  is deleted");
             break;
         case 3:
             printf("\nEnter the value to be searched:");
             scanf("%d", &val);
             searchNode(val, root);
+            break;
         case 4:
             printf("\nIn-order traversal of elements");
             inorderTraversal(root);
