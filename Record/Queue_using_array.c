@@ -7,13 +7,11 @@ void insert(int a[], int *front, int *rear)
     scanf("%d", &e);
     if ((*front == -1) && (*rear == -1))
     {
-        printf("first");
         *front = 0;
         *rear = 0;
     }
     else
     {
-        printf("then");
         *rear += 1;
     }
     a[*rear] = e;

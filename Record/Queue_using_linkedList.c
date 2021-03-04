@@ -77,9 +77,9 @@ int main()
     while(e)
     {
         printf("\n QUEUE USING LINKED LIST");
-	    printf("\n...........MENU...........");
+	    printf("\n_____________MENU_____________");
 	    printf("\n 1.INSERT \n 2.DELETE \n 3.DISPLAY \n 4.EXIT");
-	    printf("\n..........................");
+	    printf("\n______________________________");
 	    printf("\n Enter your choice:");
 	    scanf("%d",&ch);
 	    switch(ch)

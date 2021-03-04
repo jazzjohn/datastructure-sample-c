@@ -6,7 +6,7 @@ void enqueue(int a[], int *front, int *rear)
     int e;
     printf("\nEnter number:");
     scanf("%d", &e);
-    if ((*front == 0 && *rear == SIZE - 1) || (*rear == (*front - 1) % (SIZE - 1)))
+    if ((rear + 1) % SIZE == front)
     {
         printf("\nQUEUE overflow");
         return;

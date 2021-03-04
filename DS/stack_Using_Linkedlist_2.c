@@ -13,9 +13,9 @@ node * push(node *top)
 {
     int val;
     node *temp;
-    temp = (node *)malloc(sizeof(node));
+    temp = (node *)malloc(sizeof(node));    
     printf("\nEnter the value:");
-    scanf("%d\n", &val);
+    scanf("%d", &val);
     temp->data = val;
     if (top == NULL)
     {
@@ -65,15 +65,14 @@ void display(node *top)
 int main()
 {
     node *top = NULL;
-    int e = 1;
-    int ch;
+    int e = 1,ch;
     printf("\nSTACK USING LINKED LIST\n");
     while (e)
     {
         printf("\n__________________MENU_____________________\n");
         printf("\n1.PUSH\n2.POP\n3.DISPLAY\n4.EXIT\n");
         printf("\nEnter your choice:");
-        scanf("%d\n", &ch);
+        scanf("%d", &ch);
         switch (ch)
         {
         case 1:

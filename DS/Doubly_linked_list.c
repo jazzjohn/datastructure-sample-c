@@ -247,39 +247,13 @@ int main()
             break;
         case 4:
             e = 0;
-            printf("\n exiting........[10%%]");
-            sleep(1);
-            printf("\n exiting........[20%%]");
-            sleep(1);
-            printf("\n exiting........[30%%]");
-            sleep(1);
-            printf("\n exiting........[40%%]");
-            sleep(1);
-            printf("\n exiting........[50%%]");
-            sleep(1);
-            printf("\n exiting........[60%%]");
-            sleep(1);
-            printf("\n exiting........[70%%]");
-            sleep(1);
-            printf("\n exiting........[80%%]");
-            sleep(1);
-            printf("\n exiting........[90%%]");
-            sleep(1);
-            printf("\n exiting........[100%%]");
-            printf(".");
-            sleep(.5);
-            printf(".");
-            sleep(.5);
-            printf(".");
-            sleep(.5);
-            printf(".");
+            printf("\n exiting........");
             break;
         default:
             printf("\n please enter valid choice\n");
             break;
         }       
     }
-    sleep(1);
     printf("\n\n\n\t\t\t----------successfully exited----------\n\n");
     return 0;
 }

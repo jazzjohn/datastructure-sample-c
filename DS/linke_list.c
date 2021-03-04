@@ -51,6 +51,7 @@ void delete()
         
     }
 }
+
 void display()
 {
     struct node *temp;
