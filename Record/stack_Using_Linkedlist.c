@@ -11,7 +11,6 @@ void push()
 {
     struct Node *temp;
     int val;
-
     printf("\nEnter a value:");
     scanf("%d", &val);
     temp = (struct Node *)malloc(sizeof(struct Node));
