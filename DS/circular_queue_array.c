@@ -6,7 +6,7 @@ void enqueue(int a[], int *front, int *rear)
     int e;
     printf("\nEnter number:");
     scanf("%d", &e);
-    if ((rear + 1) % SIZE == front)
+    if ((*rear + 1) % SIZE == *front)
     {
         printf("\nQUEUE overflow");
         return;
@@ -50,7 +50,7 @@ void dequeue(int a[], int *front, int *rear)
 
 void display(int a[], int *front, int *rear)
 {
-    if (((*front == -1) && (*rear == -1)) || *front > *rear)
+    if (((*front == -1) && (*rear == -1)))
     {
         printf("Queue is empty");
     }
@@ -58,19 +58,65 @@ void display(int a[], int *front, int *rear)
     {
         int i;
         printf("\nthe QUEUE elements are:");
-        for (i = *front; i <= *rear; i++)
-            printf("\t%d", a[i]);
+        if(*front>*rear)
+        {
+            for (i = *front; i<=(*rear+SIZE) ; i++)
+                printf("\t%d", a[i%SIZE]);
+        }
+        else{
+            for (i = *front; i<=(*rear) ; i++)
+                printf("\t%d", a[i]);
+        }
+
     }
 }
 
-int main()
+void search(int a[], int *front, int *rear,int ele)
 {
-    int arr[SIZE], front = -1, rear = -1, ch, e = 1;
+    if (((*front == -1) && (*rear == -1)))
+    {
+        printf("Queue is empty");
+    }
+    else
+    {
+        if(*front>*rear)
+        {
+        for (int i=*front;i<=(*rear+SIZE);i++)
+        {
+            if(a[i%SIZE]==ele)
+            {
+                printf("Item found!!!");
+                return;
+            }
+
+        }
+        printf("Item not found!!!");
+        }
+        else
+        {
+            for (int i=*front;i<=(*rear);i++)
+        {
+            if(a[i]==ele)
+            {
+                printf("Item found!!!");
+                return;
+            }
+
+        }
+        printf("Item not found!!!");
+        }
+        
+    }
+}
+
+    int main()
+{
+    int arr[SIZE], front = -1, rear = -1, ch, e = 1, val;
     while (e)
     {
         printf("\nCIRCULAR QUEUE OPERATIONS");
         printf("\n____________________MENU______________________\n");
-        printf("\n\t 1. insert\n\t 2. delete\n\t 3. Display\n\t 4. Exit\n");
+        printf("\n\t 1. insert\n\t 2. delete\n\t 3. Display\n\t 4. Search\n\t 5. Exit\n");
         printf("\n__________________________________________________\n");
         printf("\nEnter your choice:");
         scanf("%d", &ch);
@@ -86,6 +132,11 @@ int main()
             display(arr, &front, &rear);
             break;
         case 4:
+            printf("\nEnter the data to be searched:");
+            scanf("%d", &val);
+            search(arr, &front, &rear, val);
+            break;
+        case 5:
             e = 0;
             printf("\nExiting from the programe");
             break;

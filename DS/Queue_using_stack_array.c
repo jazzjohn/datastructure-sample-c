@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define SIZE 10
 
-void push(int s1[], int s2[], int *top1, int *top2)
+void enqueue(int s1[], int s2[], int *top1, int *top2)
 {
     if (*top2 >= 0)
     {
@@ -20,7 +20,8 @@ void push(int s1[], int s2[], int *top1, int *top2)
     s1[*top1] = e;
     printf("\nThe entered element %d is inserted in to the QUEUE\n", e);
 }
-void pop(int s1[], int s2[], int *top1, int *top2)
+
+void dequeue(int s1[], int s2[], int *top1, int *top2)
 {
     if (*top1 < 0)
     {
@@ -41,16 +42,6 @@ void pop(int s1[], int s2[], int *top1, int *top2)
             *top1-=1;
         }
     }
-}
-
-void enqueue()
-{
-
-}
-
-void dequeue()
-{
-
 }
 
 void display(int s1[], int *top1)

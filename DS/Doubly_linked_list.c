@@ -213,14 +213,53 @@ void display()
     }
 }
 
+void search(int ele)
+{
+    if(head==NULL)
+    {
+        printf("\nList is empty!!!");
+        return;
+    }
+    node *temp= head;
+    while(temp!=NULL)
+    {
+        if(temp->data==ele)
+        {
+            printf("%d FOUND",ele);
+            return;
+        }
+        temp=temp->next;
+    }
+    printf("%d NOT FOUND!!!",ele);
+
+}
+
+void sort()
+{
+    struct node *current,*index;
+    for(current=head;current->next!=NULL;current=current->next)
+    {
+        for(index=current->next;index!=NULL;index=index->next)
+        {
+            if(current->data>index->data)
+            {
+                int temp=current->data;
+                current->data=index->data;
+                index->data=temp;
+            }
+        }
+    }
+    printf("\nsorted the list successfully\n");
+}
+
 int main()
 {
-    int ch, e = 1, op;
+    int ch, e = 1, op,data;
     while (e)
     {
         printf("\n DOUBLY LINKED LIST");
         printf("\n______________MENU______________");
-        printf("\n 1.INSERT \n 2.DELETE \n 3.DISPLAY \n 4.EXIT");
+        printf("\n 1.INSERT \n 2.DELETE \n 3.DISPLAY \n 4.SEARCH \n 5.SORT\n 6.EXIT");
         printf("\n_________________________________\n");
         printf("\n Enter your choice:");
         scanf("%d", &ch);
@@ -245,7 +284,14 @@ int main()
         case 3:
             display();
             break;
-        case 4:
+        case 4:printf("Enter the data you want to search:");
+        scanf("%d",&data);
+            search(data);
+            break;
+        case 5:
+            sort();
+            break;
+        case 6:
             e = 0;
             printf("\n exiting........");
             break;
