@@ -297,9 +297,9 @@ int main()
 	
 	while( e ) /* Menu implementation for interactively invoke functions for list manipulations */
 	{
-		printf( "\n--------------MENU--------------\n" );
+		printf("\n________________MENU________________");
 		printf( "\n\t1. Create\n\t2. Insert\n\t3. Display\n\t4. Delete\n\t5. Reverse\n\t6. Search\n\t7. Sort\n\t8. Exit\n" );
-		printf( "\n--------------------------------\n" );
+		printf("\n___________________________________\n");
 		printf( "\n Enter your choice:" );
 		scanf( "%d", &ch );
 		

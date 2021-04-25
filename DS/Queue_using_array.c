@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void insert(int a[], int *front, int *rear)
+void enqueue(int a[], int *front, int *rear)
 {
     int e;
     printf("\nEnter number:");
@@ -18,7 +18,7 @@ void insert(int a[], int *front, int *rear)
     printf("\nThe entered element %d is inserted in to the QUEUE\n", e);
 }
 
-void delete (int a[], int *front, int *rear)
+void dequeue(int a[], int *front, int *rear)
 {
     if(*front>*rear)
     {
@@ -63,10 +63,10 @@ int main()
         switch (ch)
         {
         case 1:
-            insert(arr, &front, &rear);
+            enqueue(arr, &front, &rear);
             break;
         case 2:
-            delete (arr, &front, &rear);
+            dequeue(arr, &front, &rear);
             break;
         case 3:
             display(arr, &front, &rear);

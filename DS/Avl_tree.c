@@ -172,12 +172,12 @@ int main()
     while (e)
     {
         printf("\n--------------MENU--------------\n");
-printf( "\n\t1. Create\n\t2. Insert\n\t3. Inorder Traversal\n\t4. Delete\n\t5. Exit\n" );
-printf( "\n--------------------------------\n" );
-printf( "\n Enter your choice:" );
-scanf( "%d", &ch );
-switch( ch )
-{
+        printf("\n\t1. Create\n\t2. Insert\n\t3. Inorder Traversal\n\t4. Delete\n\t5. Exit\n");
+        printf("\n--------------------------------\n");
+        printf("\n Enter your choice:");
+        scanf("%d", &ch);
+        switch (ch)
+        {
         case 1:
             root = Create(root);
             break;
@@ -199,7 +199,7 @@ switch( ch )
             break;
         default:
             printf("\n Invalid choice \n");
-}
+        }
     }
     return 0;
 }

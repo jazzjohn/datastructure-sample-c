@@ -9,8 +9,6 @@ typedef struct node
     struct node *right;
 } node;
 
-
-
 node *createNode(int val)
 {
     node *newnode;
@@ -28,7 +26,7 @@ node *findNode(node *temp, node *tree)
     }
     else if ((temp->data > tree->data) && (tree->right != NULL))
     {
-        tree->right=findNode(temp, tree->right);
+        tree->right = findNode(temp, tree->right);
     }
     else if ((temp->data < tree->data) && (tree->left == NULL))
     {
@@ -36,21 +34,20 @@ node *findNode(node *temp, node *tree)
     }
     else if ((temp->data < tree->data) && (tree->left != NULL))
     {
-        tree->left=findNode(temp, tree->left);
+        tree->left = findNode(temp, tree->left);
     }
-    
 }
 
 node *insert(int val, node *tree)
 {
-    node *temp=createNode(val);
+    node *temp = createNode(val);
     if (tree == NULL)
     {
-        tree=temp;
+        tree = temp;
     }
     else
     {
-        findNode(temp,tree);
+        findNode(temp, tree);
     }
 }
 
@@ -60,10 +57,10 @@ node *inorderTraversal(node *tree)
     {
         return NULL;
     }
-    if(tree->left!=NULL)
+    if (tree->left != NULL)
         inorderTraversal(tree->left);
     printf("\t%d\t", tree->data);
-    if(tree->right!=NULL)
+    if (tree->right != NULL)
         inorderTraversal(tree->right);
 }
 
@@ -115,12 +112,6 @@ node *deleteNode(int val, node *tree)
     }
     else
     {
-        // if((tree->left==NULL)&&(tree->right==NULL))
-        // {
-        //     node *temp= tree;
-        //     tree==NULL;
-        //     return temp;
-        // }
         if ((tree->left == NULL))
         {
             node *temp = tree->right;
@@ -164,9 +155,9 @@ int main()
 {
     int ch, e = 1, op, val;
     node *root = NULL;
+    printf("\n BST OPERATION");
     while (e)
     {
-        printf("\n BST OPERATION");
         printf("\n______________MENU______________");
         printf("\n 1.INSERT \n 2.DELETE \n 3.SEARCH \n 4.IN-ORDER TRAVERSAL \n 5.PRE-ORDER TRAVERSAL\n 6.POST-ORDER TRAVERSAL\n 7.EXIT");
         printf("\n_________________________________\n");
