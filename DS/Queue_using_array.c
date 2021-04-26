@@ -20,38 +20,37 @@ void enqueue(int a[], int *front, int *rear)
 
 void dequeue(int a[], int *front, int *rear)
 {
-    if(*front>*rear)
+    if (*front > *rear)
     {
         printf("\nQUEUE underflow\n");
     }
     else
-    {    
-    int e;
-    e = a[*front];
-    printf("\nThe element %d deleted from QUEUE", e);
-    *front += 1;
+    {
+        int e;
+        e = a[*front];
+        printf("\nThe element %d deleted from QUEUE", e);
+        *front += 1;
     }
-
 }
 
 void display(int a[], int *front, int *rear)
 {
-    if (((*front == -1) && (*rear == -1)) || *front>*rear)
+    if (((*front == -1) && (*rear == -1)) || *front > *rear)
     {
         printf("Queue is empty");
     }
     else
     {
-    int i;
-    printf("\nthe QUEUE elements are:");
-    for (i = *front; i <= *rear; i++)
-        printf("\t%d", a[i]);
+        int i;
+        printf("\nthe QUEUE elements are:");
+        for (i = *front; i <= *rear; i++)
+            printf("\t%d", a[i]);
     }
 }
 
 int main()
 {
-    int arr[10], front=-1, rear=-1, ch, e = 1;
+    int arr[10], front = -1, rear = -1, ch, e = 1;
     while (e)
     {
         printf("\nQUEUE OPERATIONS");
