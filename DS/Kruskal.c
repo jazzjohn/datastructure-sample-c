@@ -68,7 +68,7 @@ void Kruskal(int adj[][SIZE], int *nv)
         }
         adj_temp[a][b] = adj_temp[b][a] = infinity;
     }
-printf("\nSuccessfully created a spanning tree and its minimum cost is %d\n", mincost);
+    printf("\nSuccessfully created a spanning tree and its minimum cost is %d\n", mincost);
 }
 void display(int adj[][SIZE], int *nv, int flag)
 {
@@ -97,12 +97,12 @@ int main()
     while (e)
     {
         printf("\n--------------MENU--------------\n");
-printf( "\n\t1. Read Graph\n\t2. Display\n\t3. Kruskal's Algorithm- Spanning Tree\n\t4. Exit\n" );
-printf( "\n--------------------------------\n" );
-printf( "\n Enter your choice:" );
-scanf( "%d", &ch );
-switch( ch )
-{
+        printf("\n\t1. Read Graph\n\t2. Display\n\t3. Kruskal's Algorithm- Spanning Tree\n\t4. Exit\n");
+        printf("\n--------------------------------\n");
+        printf("\n Enter your choice:");
+        scanf("%d", &ch);
+        switch (ch)
+        {
         case 1:
             read_graph(&nv, adj);
             break;
@@ -118,7 +118,7 @@ switch( ch )
             break;
         default:
             printf("\n Invalid choice \n");
-}
+        }
     }
     return 0;
 }

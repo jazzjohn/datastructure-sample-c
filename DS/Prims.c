@@ -93,7 +93,7 @@ int Prims(int adj[][SIZE], int st[][SIZE], int *nv)
 }
 int main()
 {
-    int adj[SIZE][SIZE],st[SIZE][SIZE];
+    int adj[SIZE][SIZE], st[SIZE][SIZE];
     int nv;
     int cost = 0;
     int flag = 0;
@@ -101,12 +101,12 @@ int main()
     while (e)
     {
         printf("\n--------------MENU--------------\n");
-printf( "\n\t1. Read Graph\n\t2. Display\n\t3. Prim's Algorithm - Spanning Tree\n\t4. Exit\n" );
-printf( "\n--------------------------------\n" );
-printf( "\n Enter your choice:" );
-scanf( "%d", &ch );
-switch( ch )
-{
+        printf("\n\t1. Read Graph\n\t2. Display\n\t3. Prim's Algorithm - Spanning Tree\n\t4. Exit\n");
+        printf("\n--------------------------------\n");
+        printf("\n Enter your choice:");
+        scanf("%d", &ch);
+        switch (ch)
+        {
         case 1:
             read_graph(&nv, adj);
             break;
@@ -117,12 +117,14 @@ switch( ch )
             flag = 1;
             cost = Prims(adj, st, &nv);
             if (cost)
-printf("\nSuccessfully created a spanning tree and its minimum cost is %d \n", cost );
-break;
-case 4 : e = 0;
-break;
-default: printf( "\n Invalid choice \n" );
-}
+                printf("\nSuccessfully created a spanning tree and its minimum cost is %d \n", cost);
+            break;
+        case 4:
+            e = 0;
+            break;
+        default:
+            printf("\n Invalid choice \n");
+        }
     }
     return 0;
 }
